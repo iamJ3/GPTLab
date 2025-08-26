@@ -6,5 +6,13 @@
 }
 
 @theme {
-    --color-primary:#5044E5;
+    --color-primary: #00E599;
+     /* Tailwind blue-500 */
+
+}
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
 }
