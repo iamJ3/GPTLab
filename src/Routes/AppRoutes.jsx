@@ -18,7 +18,7 @@ const AppRoutes = () => {
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='ai' element={<Layout />}>
+        <Route path='/ai' element={<Layout />}>
           <Route index element={<Dashboard />}/>
           <Route path='Write-article' element={<WriteArticle />} />
           <Route path='blog-title' element={<BlogTitle />} />
