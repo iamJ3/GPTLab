@@ -3,6 +3,7 @@
 
 * {
     font-family: "Oswald", sans-serif;
+    /* background-color: black; */
 }
 
 @theme {
@@ -11,8 +12,3 @@
 
 }
 
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-@media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-}

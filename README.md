@@ -1,12 +1,53 @@
-# React + Vite
+## GPTLab Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite frontend for GPTLab. This project is currently a work in progress.
 
-Currently, two official plugins are available:
+- **Status**: In progress (WIP)
+- **Stack**: React, Vite, ESLint
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Getting started
 
-## Expanding the ESLint configuration
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+2. **Start the dev server**
+   ```bash
+   npm run dev
+   ```
+3. **Build for production**
+   ```bash
+   npm run build
+   ```
+4. **Preview the build**
+   ```bash
+   npm run preview
+   ```
+5. **Lint**
+   ```bash
+   npm run lint
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Project structure
+
+- `src/`: Application source code
+- `public/`: Static assets
+- `index.html`: App entry HTML
+- `vite.config.js`: Vite configuration
+
+### Roadmap
+
+- [ ] Core UI scaffolding and layout
+- [ ] Components and state management
+- [ ] API integration
+- [ ] Authentication (if needed)
+- [ ] Testing & QA
+- [ ] Deployment setup
+
+### Contributing
+
+Contributions are welcome. Please open an issue or a pull request. Since the project is evolving, expect frequent changes.
+
+### License
+
+TBD

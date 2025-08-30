@@ -16,22 +16,27 @@ const Navbar = () => {
       </h2>
       {
         user ? <UserButton /> : (
-          <div className='flex gap-4'>
-
-
-
-            <button onClick={openSignIn} className="flex text-black items-center gap-2 rounded-full text-sm cursor-pointer bg-primary px-8 py-2 shadow-md hover:scale-105 transition">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center sm:items-start">
+            <button
+              onClick={openSignIn}
+              className="flex text-black items-center gap-2 rounded-full text-sm cursor-pointer 
+               bg-primary px-6 sm:px-8 py-2 shadow-md hover:scale-105 transition"
+            >
               Log In
             </button>
-            <div className="p-[2px] rounded-full bg-gradient-to-r from-pink-500 via-yellow-500 to-purple-500 animate-gradient-x">
-              <button className="flex items-center gap-2 rounded-full text-sm font-medium text-white 
-    bg-black/80 backdrop-blur-md px-8 py-2 shadow-lg hover:shadow-xl 
-    hover:scale-105 transition-all duration-300">
+
+            <div className="p-[2px] rounded-full bg-gradient-to-r from-pink-500 via-yellow-500 to-purple-500 animate-gradient-x w-full sm:w-auto">
+              <button
+                className="w-full sm:w-auto flex justify-center items-center gap-2 rounded-full 
+                 text-sm font-medium text-white bg-black/80 backdrop-blur-md 
+                 px-6 sm:px-8 py-2 shadow-lg hover:shadow-xl hover:scale-105 
+                 transition-all duration-300"
+              >
                 🚀 Sign Up
               </button>
             </div>
-
           </div>
+
         )
 
       }
