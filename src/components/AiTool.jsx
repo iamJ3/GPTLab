@@ -7,20 +7,10 @@ const AiTool = () => {
   const navigate = useNavigate()
   const { user } = useUser()
 
-  const {openSignIn} = useClerk()
-  const handleToolClick = (tool) => {
-    if (user) {
-      navigate(tool.path)
-    }
-    {openSignIn}
-  }
+  const { openSignIn } = useClerk();
 
-  const handleKeyPress = (event, tool) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      handleToolClick(tool)
-    }
-  }
+
+
 
   return (
     <section className='relative min-h-screen bg-black overflow-hidden px-4 sm:px-8 lg:px-16 xl:px-24 py-20'>
@@ -58,39 +48,38 @@ const AiTool = () => {
         {/* Tools Grid */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {AiToolsData.map((tool, index) => (
-            <article 
-              key={tool.id || index}
+            <article
+              key={index}
+              onClick={()=>navigate(tool.path)}
               className="group relative bg-gray-900/60 backdrop-blur-sm p-8 rounded-2xl 
                        border border-gray-700/50 hover:border-green-500/50 
                        hover:shadow-2xl hover:shadow-green-500/20 
                        transform hover:-translate-y-3 hover:scale-105
                        transition-all duration-500 cursor-pointer
-                       focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-opacity-50"
-              onClick={() => handleToolClick(tool)}
-            >
+                       focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-opacity-50">
               {/* Card Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10 
                             rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               {/* Animated Border Glow */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 
                             opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
-              
+
               {/* Icon Container */}
               <div className="relative z-10 mb-6">
-                <div 
+                <div
                   className="w-16 h-16 rounded-xl flex items-center justify-center
                            shadow-lg transition-all duration-500 group-hover:scale-110"
-                  style={{ 
-                    background: tool.bg ? 
-                      `linear-gradient(135deg, ${tool.bg.from}, ${tool.bg.to})` : 
+                  style={{
+                    background: tool.bg ?
+                      `linear-gradient(135deg, ${tool.bg.from}, ${tool.bg.to})` :
                       'linear-gradient(135deg, #10b981, #059669)'
                   }}
                 >
                   <tool.Icon className='w-8 h-8 text-white drop-shadow-sm' aria-hidden="true" />
                 </div>
               </div>
-              
+
               {/* Content */}
               <div className="relative z-10">
                 <h2 className="text-white text-xl font-bold mb-4 group-hover:text-green-300 
@@ -107,15 +96,15 @@ const AiTool = () => {
               <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 
                             transform translate-x-2 group-hover:translate-x-0 
                             transition-all duration-300">
-                <svg 
-                  className="w-5 h-5 text-green-400" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
 
@@ -127,20 +116,6 @@ const AiTool = () => {
           ))}
         </div>
 
-        {/* User Authentication Status */}
-        {!user && (
-          <div className="mt-20 text-center">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gray-800/60 backdrop-blur-sm border border-gray-700/50">
-              <svg className="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              <p className="text-gray-300 text-sm">
-                Please sign in to access AI tools
-              </p>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )

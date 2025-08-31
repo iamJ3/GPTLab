@@ -19,14 +19,6 @@ const Hero = () => {
     }, [])
 
 
-
-    const handleKeyPress = (event, action) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault()
-            action()
-        }
-    }
-
     return (
         <section className="relative pt-4 w-full min-h-screen overflow-hidden bg-black">
             {/* Background Image */}
@@ -62,8 +54,8 @@ const Hero = () => {
             <div className="relative z-20 flex flex-col justify-center items-center min-h-screen px-4 sm:px-8 lg:px-16 xl:px-24 text-center">
 
                 {/* Hero Text */}
-                <div className='mb-12 max-w-5xl mx-auto'>
-                    <h1 className='text-4xl sm:text-6xl lg:text-7xl xl:text-6xl font-bold text-white mb-8 leading-tight'>
+                <div className='mb-12 relative mt-10 max-w-5xl mx-auto'>
+                    <h1 className='text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 leading-tight'>
                         Craft Stunning Content
                         <br />
                         <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 
@@ -130,12 +122,10 @@ const Hero = () => {
                                   bg-gray-900/60 backdrop-blur-sm border border-gray-700/50 
                                   hover:border-green-500/50 transition-all duration-300">
                         <div className="flex items-center gap-2 text-gray-300">
-                            <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
+
+                            <img src='/user_group.png' width={100} />
                             <span className="text-sm font-medium">
-                                {/* <img src='/user_group.png' alt="" /> */}
-                                Trusted by <span className="text-green-400 font-bold">2K+</span> creators
+                                Fucked by <span className="text-green-400 font-bold">2K+</span> creators
                             </span>
                         </div>
                     </div>
@@ -159,4 +149,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Hero;

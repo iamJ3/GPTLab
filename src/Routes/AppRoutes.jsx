@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import WriteArticle from '../pages/WriteArticle'
-import Home from '../pages/Home'
+import Home from '../pages/LandingPage'
 import Layout from '../pages/Layout'
 import Dashboard from '../pages/Dashboard'
 import BlogTitle from '../pages/BlogTitle'
@@ -20,7 +20,7 @@ const AppRoutes = () => {
         <Route path='/' element={<Home />} />
         <Route path='/ai' element={<Layout />}>
           <Route index element={<Dashboard />}/>
-          <Route path='Write-article' element={<WriteArticle />} />
+          <Route path='write-article' element={<WriteArticle />} />
           <Route path='blog-title' element={<BlogTitle />} />
           <Route path='generate-images' element={<GenerateImages />} />
           <Route path='remove-bg' element={<RemoveBg />} />
