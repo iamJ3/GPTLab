@@ -26,7 +26,7 @@ const AppRoutes = () => {
           <Route path='remove-bg' element={<RemoveBg />} />
           <Route path='remove-object' element={<RemoveObject />} />
           <Route path='review-community' element={<Community />} />
-          <Route path='remove-resume' element={<ResumeReview />} />
+          <Route path='review-resume' element={<ResumeReview />} />
         </Route>
       </Routes>
     </div>

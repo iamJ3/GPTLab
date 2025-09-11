@@ -6,12 +6,7 @@ import { useClerk, useUser } from '@clerk/clerk-react'
 const AiTool = () => {
   const navigate = useNavigate()
   const { user } = useUser()
-
   const { openSignIn } = useClerk();
-
-
-
-
   return (
     <section className='relative min-h-screen bg-black overflow-hidden px-4 sm:px-8 lg:px-16 xl:px-24 py-20'>
       {/* Animated Starry Background */}
@@ -50,7 +45,7 @@ const AiTool = () => {
           {AiToolsData.map((tool, index) => (
             <article
               key={index}
-              onClick={()=>navigate(tool.path)}
+              onClick={() => navigate(tool.path)}
               className="group relative bg-gray-900/60 backdrop-blur-sm p-8 rounded-2xl 
                        border border-gray-700/50 hover:border-green-500/50 
                        hover:shadow-2xl hover:shadow-green-500/20 
@@ -122,3 +117,24 @@ const AiTool = () => {
 }
 
 export default AiTool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

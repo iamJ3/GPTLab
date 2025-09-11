@@ -12,74 +12,98 @@ export const assets = {
     arrow_icon,
 };
 
-export const AiToolsData = [
+export const plans = [
     {
-        title: 'AI Article Writer',
-        description: 'Generate high-quality, engaging articles on any topic with our AI writing technology.',
-        Icon: SquarePen,
-        bg: { from: '#3588F2', to: '#0BB0D7' },
-        path: '/ai/write-article'
+      name: 'Free',
+      price: '$0',
+      period: 'forever',
+      features: ['Basic features', '1 user', '2GB storage', 'Email support'],
+      popular: false
     },
     {
-        title: 'Blog Title Generator',
-        description: 'Find the perfect, catchy title for your blog posts with our AI-powered generator.',
-        Icon: Hash,
-        bg: { from: '#B153EA', to: '#E549A3' },
-        path: '/ai/blog-titles'
-    },
-    {
-        title: 'AI Image Generation',
-        description: 'Create stunning visuals with our AI image generation tool, Experience the power of AI ',
-        Icon: Image,
-        bg: { from: '#20C363', to: '#11B97E' },
-        path: '/ai/generate-images'
-    },
-    {
-        title: 'Background Removal',
-        description: 'Effortlessly remove backgrounds from your images with our AI-driven tool.',
-        Icon: Eraser,
-        bg: { from: '#F76C1C', to: '#F04A3C' },
-        path: '/ai/remove-background'
-    },
-    {
-        title: 'Object Removal',
-        description: 'Remove unwanted objects from your images seamlessly with our AI object removal tool.',
-        Icon: Scissors,
-        bg: { from: '#5C6AF1', to: '#427DF5' },
-        path: '/ai/remove-object'
-    },
-    {
-        title: 'Resume Reviewer',
-        description: 'Get your resume reviewed by AI to improve your chances of landing your dream job.',
-        Icon: FileText,
-        bg: { from: '#12B7AC', to: '#08B6CE' },
-        path: '/ai/review-resume'
+      name: 'Pro',
+      price: '$19',
+      period: 'per month',
+      features: ['All basic features', '5 users', '100GB storage', 'Priority support', 'Advanced analytics'],
+      popular: true
     }
+  ]
+export const AiToolsData = [
+  {
+    title: 'Smart Content Writer',
+    description: 'Craft unique, engaging content on any subject with the help of AI-powered writing.',
+    Icon: SquarePen,
+    bg: { from: '#3588F2', to: '#0BB0D7' },
+    path: '/ai/write-article'
+  },
+  {
+    title: 'Title Ideas Generator',
+    description: 'Instantly get catchy, SEO-friendly titles that make your blogs stand out.',
+    Icon: Hash,
+    bg: { from: '#B153EA', to: '#E549A3' },
+    path: '/ai/blog-titles'
+  },
+  {
+    title: 'AI Image Creator',
+    description: 'Generate stunning illustrations, photos, and visuals through AI imagination.',
+    Icon: Image,
+    bg: { from: '#20C363', to: '#11B97E' },
+    path: '/ai/generate-images'
+  },
+  {
+    title: 'One-Click BG Remover',
+    description: 'Erase image backgrounds instantly and get clean results every single time.',
+    Icon: Eraser,
+    bg: { from: '#F76C1C', to: '#F04A3C' },
+    path: '/ai/remove-background'
+  },
+  {
+    title: 'Unwanted Object Eraser',
+    description: 'Remove distractions from your photos smoothly with AI cleanup tools.',
+    Icon: Scissors,
+    bg: { from: '#5C6AF1', to: '#427DF5' },
+    path: '/ai/remove-object'
+  },
+  {
+    title: 'AI Resume Optimizer',
+    description: 'Analyze and improve your resume with AI to increase your job success rate.',
+    Icon: FileText,
+    bg: { from: '#12B7AC', to: '#08B6CE' },
+    path: '/ai/review-resume'
+  }
 ]
 
-export const dummyTestimonialData = [
-    {
-        image: assets.profile_img_1,
-        name: 'John Doe',
-        title: 'Marketing Director, TechCorp',
-        content: 'ContentAI has revolutionized our content workflow. The quality of the articles is outstanding, and it saves us hours of work every week.',
-        rating: 4,
-    },
-    {
-        image: assets.profile_img_1,
-        name: 'Jane Smith',
-        title: 'Content Creator, TechCorp',
-        content: 'ContentAI has made our content creation process effortless. The AI tools have helped us produce high-quality content faster than ever before.',
-        rating: 5,
-    },
-    {
-        image: assets.profile_img_1,
-        name: 'David Lee',
-        title: 'Content Writer, TechCorp',
-        content: 'ContentAI has transformed our content creation process. The AI tools have helped us produce high-quality content faster than ever before.',
-        rating: 4,
-    },
-]
+
+export const cardsData = [
+        {
+            image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
+            name: 'Briar Martin',
+            handle: '@neilstellar',
+            date: 'April 20, 2025',
+            testimonial: 'GPTLab made creating stunning content an absolute breeze. The AI tools are incredibly intuitive and powerful.'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
+            name: 'Avery Johnson',
+            handle: '@averywrites',
+            date: 'May 10, 2025',
+            testimonial: 'This platform revolutionized my writing workflow. I can generate amazing articles in minutes instead of hours.'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
+            name: 'Jordan Lee',
+            handle: '@jordantalks',
+            date: 'June 5, 2025',
+            testimonial: 'The AI-powered content generation is next level. GPTLab has become an essential part of my creative process.'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
+            name: 'Sarah Chen',
+            handle: '@sarahcreates',
+            date: 'July 15, 2025',
+            testimonial: 'Outstanding results every time. The quality and speed of content generation exceeded all my expectations.'
+        },
+    ];
 
 
 export const dummyCreationData = [
