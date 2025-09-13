@@ -95,7 +95,6 @@ const Hero = () => {
 
                         </button>
                     </div>
-
                     {/* GitHub Button */}
                     <button
                         onClick={() => window.open('https://github.com/iamJ3/GPTLab', '_blank')}
@@ -115,7 +114,6 @@ const Hero = () => {
                                       animate-ping opacity-75" />
                     </button>
                 </div>
-
                 {/* Enhanced Social Proof */}
                 <div className="flex items-center justify-center gap-4 mx-auto">
                     <div className="flex items-center gap-3 px-6 py-3 rounded-full 
@@ -125,12 +123,11 @@ const Hero = () => {
 
                             <img src='/user_group.png' width={100} />
                             <span className="text-sm font-medium">
-                                Fucked by <span className="text-green-400 font-bold">2K+</span> creators
+                                Trusted by <span className="text-green-400 font-bold">2K+</span> creators
                             </span>
                         </div>
                     </div>
                 </div>
-
                 {/* Floating Action Indicator */}
                 <div className="absolute bottom-2  left-1/2 transform -translate-x-1/2 animate-bounce">
                     <div className="flex flex-col  items-center gap-2 text-gray-400 hover:text-green-400 
