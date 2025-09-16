@@ -81,7 +81,7 @@ const Hero = () => {
                     >
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-green-500 
                                       opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300" />
-                        <button className="relative flex items-center gap-3 rounded-full text-lg font-semibold text-white 
+                        <button className="relative cursor-pointer flex items-center gap-3 rounded-full text-lg font-semibold text-white 
                                          bg-black px-10 py-4 hover:scale-105 focus:scale-105 active:scale-95 
                                          transition-transform duration-200 shadow-xl">
                             <span>Get Started</span>
