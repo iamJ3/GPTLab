@@ -19,40 +19,40 @@ const Sidebar = ({sidebar, setsidebar}) => {
   const { signOut, openUserProfile } = useClerk()
   if (!isLoaded) return null
   return (
-    <div className={`w-60 bg-white border-r border-gray-200 flex justify-between items-center max-sm:absolute top-14 bottom-0 ${sidebar ? 'translate-x-0': 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out flex-col `} >
+    <div className={`w-60 bg-black border-r border-gray-800 text-white flex justify-between items-center max-sm:absolute top-14 bottom-0 ${sidebar ? 'translate-x-0': 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out flex-col `} >
         <div>
           <img src={user?.imageUrl || '/default-avatar.png'} alt="User Avatar" className='w-13 rounded-full mx-auto' />
-          <h1 className='mt-1 text-center'>{user?.fullName || 'Guest'}</h1>
+          <h1 className='mt-1 text-center text-white'>{user?.fullName || 'Guest'}</h1>
           {navItems.map(({to, label, Icon}) => (
             <NavLink
               to={to}
               key={to}
               end={to==='/ai'}
               onClick={() => setsidebar(false)}
-              className={({ isActive }) => `px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 mt-4 ${isActive ? 'bg-gray-100' : ''}`}
+              className={({ isActive }) => `px-4 py-2 hover:bg-[#52E59E]/10 cursor-pointer flex items-center gap-2 mt-4 ${isActive ? 'bg-[#52E59E]/20' : ''}`}
             >
               {({ isActive }) => (
                 <>
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-600'}`} />
-                  <span>{label}</span>
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#52E59E]' : 'text-gray-300'}`} />
+                  <span className='ml-1 text-sm text-gray-100'>{label}</span>
                 </>
               )}
             </NavLink>
           ))}
     </div>
 
-    <div className='w-full border-t border-gray-200 px-4 p-4 flex items-center justify-between'>
+    <div className='w-full border-t border-gray-800 px-4 p-4 flex items-center justify-between'>
       <div onClick={openUserProfile} className='flex gap-2 items-center cursor-pointer'>
-        <img src={user?.imageUrl || '/default-avatar.png'} alt="User Avatar" className='w-10 rounded-full' />
+        <img src={user?.imageUrl || '/default-avatar.png'} alt="User Avatar" className='w-10 rounded-full ring-2 ring-[#52E59E]' />
         <div>
-          <h1 className='text-sm font-medium'>{user.fullName}</h1>
-          <p className='text-xs text-gray-500'
+          <h1 className='text-sm font-medium text-white'>{user.fullName}</h1>
+          <p className='text-xs text-gray-400'
           >
             <Protect fallback='free' plan="premium">Premium </Protect>
             Plan
           </p>
         </div>
-        <LogOut onClick={(e) => { e.stopPropagation(); signOut(); }} className='w-4.5 text-gray-400 hover:text-gray-700 transition cursor-pointer'/>
+        <LogOut onClick={(e) => { e.stopPropagation(); signOut(); }} className='w-4.5 text-gray-300 hover:text-[#52E59E] transition cursor-pointer'/>
       </div>
     
 
