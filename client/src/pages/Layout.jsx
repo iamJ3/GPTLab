@@ -20,7 +20,7 @@ const Layout = () => {
       <div className='flex-1 w-full flex h-[calc(100vh-64px)]'>
         <Sidebar sidebar={sidebar} setsidebar={setsidebar} />
         <div className='flex-1 bg-black p-6 overflow-y-auto'>
-          <div className='flex-1 bg-[#52E59E] text-black p-4 rounded-md'>
+          <div className='flex-1 bg-[#010402] text-black p-4 rounded-md'>
 
             <Outlet />
           </div>
