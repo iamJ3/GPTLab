@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Markdown from "react-markdown";
 const CreationItem = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -34,7 +34,7 @@ const CreationItem = ({ item }) => {
           ) : (
             <div className="mt-3 h-full overflow-y-scroll text-sm text-gray-300">
               <div className="reset-tw">
-                <div>{item.content}</div>
+                <Markdown>{item.content}</Markdown>
               </div>
             </div>
           )}
