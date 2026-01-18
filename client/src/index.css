@@ -8,7 +8,15 @@
 
 @theme {
     --color-primary: #00E599;
-     /* Tailwind blue-500 */
+    /* Tailwind blue-500 */
 
 }
 
+.reset-tw,
+.reset-tw * {
+    all: revert !important
+}
+
+.cl-drawerRoot {
+    z-index: 10
+}
