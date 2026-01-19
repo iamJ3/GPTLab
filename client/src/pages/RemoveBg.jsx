@@ -53,7 +53,7 @@ const RemoveBg = () => {
           type="file"
           accept="image/*"
           onChange={(e) => setInput(e.target.files[0])}
-          className="w-full p-2 mt-2 text-sm rounded-md bg-gray-900 border border-gray-700 text-white outline-none"
+          className="w-full file:text-gray-400 p-2 mt-2 text-sm  rounded-md bg-gray-900 border border-gray-700 text-white outline-none"
           required
         />
         <p className="text-xs text-gray-400 font-light">
