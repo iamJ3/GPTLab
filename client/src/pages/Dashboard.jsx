@@ -29,9 +29,9 @@ const Dashboard = () => {
             </h2>
           </div>
 
-          <div className='w-10 h-10 rounded-lg bg-[#00CF79]/10 border border-[#00CF79] flex justify-center items-center'>
+          {/* <div className='w-10 h-10 rounded-lg bg-[#00CF79]/10 border border-[#00CF79] flex justify-center items-center'> */}
             <Sparkle className='text-[#00CF79]' size={24} />
-          </div>
+          {/* </div> */}
         </div>
 
         {/* plan card */}
@@ -44,9 +44,9 @@ const Dashboard = () => {
             <Protect plan="premium" fallback="Free">Premium</Protect>
           </div>
 
-          <div className='w-10 h-10 rounded-lg bg-[#00CF79]/10 border border-[#00CF79] flex justify-center items-center'>
+          {/* <div className='w-10 h-10 rounded-lg bg-[#00CF79]/10 border border-[#00CF79] flex justify-center items-center'> */}
             <Gem className='text-[#00CF79]' size={24} />
-          </div>
+          {/* </div> */}
         </div>
       </div>
 
