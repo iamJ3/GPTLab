@@ -86,6 +86,32 @@ npm run preview
 - **React** (v19.1.1) - UI library
 - **Vite** (v7.1.2) - Build tool
 - **React Router** (v7.8.2) - Client-side routing
+## 📸 Screenshots
+
+- **Dashboard** - Overview of all AI tools
+   ![Dashboard](https://via.placeholder.com/800x600?text=Dashboard)
+
+- **Write Article** - Article generation interface
+   ![Write Article](https://via.placeholder.com/800x600?text=Write+Article)
+
+- **Generate Images** - Image creation tool
+   ![Generate Images](https://via.placeholder.com/800x600?text=Generate+Images)
+
+- **Remove Background** - Background removal in action
+   ![Remove Background](https://via.placeholder.com/800x600?text=Remove+Background)
+
+- **Community Reviews** - User submissions and feedback
+   ![Community Reviews](https://via.placeholder.com/800x600?text=Community+Reviews)
+
+
+[Add screenshots of key features here]
+
+- **Dashboard** - Overview of all AI tools
+- **Write Article** - Article generation interface
+- **Generate Images** - Image creation tool
+- **Remove Background** - Background removal in action
+- **Community Reviews** - User submissions and feedback
+
 - **Tailwind CSS** (v4.1.12) - Styling
 - **Clerk** (v5.43.1) - Authentication
 - **React Markdown** (v10.1.0) - Markdown rendering
