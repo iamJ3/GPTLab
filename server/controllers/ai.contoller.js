@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import sql from "../configs/db.js";
+import sql from "../config/db.js";
 import { clerkClient } from "@clerk/express";
 import axios from "axios";
 import { v2 as cloudinary } from "cloudinary";
