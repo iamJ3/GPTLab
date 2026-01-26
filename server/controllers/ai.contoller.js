@@ -1,15 +1,12 @@
-import OpenAI from "openai";
+import axios from "axios";
 import sql from "../config/db.js";
 import { clerkClient } from "@clerk/express";
-import axios from "axios";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
-import pdf from "pdf-parse/lib/pdf-parse.js";
+// import pdf from "pdf-parse/lib/pdf-parse.js";
 
-const AI = new OpenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-  baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
-});
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
 
 export const generateArticle = async (req, res) => {
   try {
@@ -20,26 +17,42 @@ export const generateArticle = async (req, res) => {
 
     if (plan !== "premium" && free_usage >= 10) {
       return res.json({
-        succes: false,
+        success: false,
         message: "Limit reached. Upgrade to continue.",
       });
     }
 
-    const response = await AI.chat.completions.create({
-      model: "gemini-2.0-flash",
-      messages: [
-        {
-          role: "user",
-          content: prompt,
+    if (!GEMINI_API_KEY) {
+      return res.json({
+        success: false,
+        message: "API key not configured. Check .env file.",
+      });
+    }
+
+    const response = await axios.post(
+      `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: length || 500,
         },
-      ],
-      temperature: 0.7,
-      max_tokens: length,
-    });
+      }
+    );
 
-    const content = response.choices[0].message.content;
+    const content =
+      response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "No content generated";
 
-    await sql` INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, ${prompt}, ${content}, 'article') `;
+    await sql`INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, ${prompt}, ${content}, 'article')`;
 
     if (plan !== "premium") {
       await clerkClient.users.updateUserMetadata(userId, {
@@ -51,9 +64,12 @@ export const generateArticle = async (req, res) => {
 
     res.json({ success: true, content });
   } catch (error) {
-    console.log(error.message);
-    res.json({ success: false, message: error.message });
-  };
+    console.log("Gemini Error:", error.response?.data || error.message);
+    res.json({
+      success: false,
+      message: error.response?.data?.error?.message || error.message,
+    });
+  }
 };
 
 export const generateBlogTitle = async (req, res) => {
