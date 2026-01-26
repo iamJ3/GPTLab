@@ -3,7 +3,8 @@ import sql from "../config/db.js";
 import { clerkClient } from "@clerk/express";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
-// import pdf from "pdf-parse/lib/pdf-parse.js";
+
+const pdf = (await import('pdf-parse')).default;
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
