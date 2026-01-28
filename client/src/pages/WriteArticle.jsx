@@ -21,11 +21,35 @@ const WriteArticel = () => {
   const [content, setContent] = useState("");
 
   const { getToken } = useAuth();
+   const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const prompt = `Write an article about ${input} in ${selectedLength.text}`;
 
+      const { data } = await axios.post(
+        "/api/ai/write-article",
+        { prompt, length: selectedLength.length },
+        {
+          headers: { Authorization: `Bearer ${await getToken()}` },
+        }
+      );
+
+      if (data.success) {
+        setContent(data.content);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+    setLoading(false);
+  };
   return (
     <div className="h-full p-6 flex items-start flex-wrap gap-4 bg-black text-white">
       {/* Left col */}
-      <form className="w-full max-w-lg p-4 bg-black rounded-lg border border-gray-800">
+      <form onSubmit={onSubmitHandler} className="w-full max-w-lg p-4 bg-black rounded-lg border border-gray-800">
         <div className="flex items-center gap-3">
           <Sparkles className="w-6 text-[#00CF79]" />
           <h1 className="text-xl font-semibold">Article Configuration</h1>
@@ -48,11 +72,10 @@ const WriteArticel = () => {
           {articleLength.map((item, index) => (
             <span
               onClick={() => setSelectedLength(item)}
-              className={`text-xs px-4 py-1 border rounded-full cursor-pointer ${
-                selectedLength.text === item.text
+              className={`text-xs px-4 py-1 border rounded-full cursor-pointer ${selectedLength.text === item.text
                   ? "bg-[#00CF79]/10 text-[#00CF79] border-[#00CF79]"
                   : "text-gray-400 border-gray-700"
-              }`}
+                }`}
               key={index}
             >
               {item.text}
