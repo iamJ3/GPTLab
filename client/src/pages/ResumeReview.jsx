@@ -17,7 +17,6 @@ const ResumeReview = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     if (!input) return;
-
     try {
       setLoading(true);
       const formData = new FormData();
