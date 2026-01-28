@@ -3,8 +3,12 @@ import sql from "../config/db.js";
 import { clerkClient } from "@clerk/express";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import FormData from "form-data";
+import pdf from "pdf-parse/lib/pdf-parse.js";
 
-const pdf = (await import('pdf-parse')).default;
+// (async () => {
+//   pdf = (await import('pdf-parse')).default;
+// })();
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
@@ -227,6 +231,7 @@ export const removeImageObject = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+// ...existing code...
 
 export const resumeReview = async (req, res) => {
   try {
@@ -236,37 +241,68 @@ export const resumeReview = async (req, res) => {
 
     if (plan !== "premium") {
       return res.json({
-        succes: false,
-        message: "This feature is only available for premium subscriptions",
+        success: false,
+        message: "Premium users only. Pay up 💸",
+      });
+    }
+
+    if (!resume) {
+      return res.json({
+        success: false,
+        message: "No resume uploaded",
       });
     }
 
     if (resume.size > 5 * 1024 * 1024) {
       return res.json({
         success: false,
-        message: "Resume file size exceeds allowed size (5MB).",
+        message: "Resume exceeds 5MB",
       });
     }
 
+    // ✅ Read uploaded file ONLY
     const dataBuffer = fs.readFileSync(resume.path);
     const pdfData = await pdf(dataBuffer);
 
-    const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. Resume Content:\n\n${pdfData.text}`;
+    if (!pdfData.text || pdfData.text.trim() === "") {
+      return res.json({
+        success: false,
+        message: "Could not extract text from PDF",
+      });
+    }
 
-    const response = await AI.chat.completions.create({
-      model: "gemini-2.0-flash",
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      max_tokens: 1000,
-    });
+    const prompt = `Review the following resume and give actionable feedback.\n\nResume:\n${pdfData.text}`;
 
-    const content = response.choices[0].message.content;
+    const response = await axios.post(
+      `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 3000,
+        },
+      }
+    );
 
-    await sql` INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, 'Review the uploaded resume', ${content}, 'resume-review') `;
+    const content = response.data.candidates[0].content.parts[0].text;
+
+    await sql`
+      INSERT INTO creations (user_id, prompt, content, type)
+      VALUES (${userId}, 'Resume Review', ${content}, 'resume-review')
+    `;
 
     res.json({ success: true, content });
+
   } catch (error) {
-    console.log(error.message);
-    res.json({ success: false, message: error.message });
+    console.error("Resume review error:", error);
+    res.json({ success: false, message: "PDF processing failed" });
   }
 };
