@@ -85,4 +85,8 @@ npm run dev
 
 ---
 
+<<<<<<< HEAD
 **Status:** Beta | **License:** MIT
+=======
+**Status:** Beta | **License:** MIT
+>>>>>>> b29860e53fe9d4b66395b35b6c16b2385bfdfc68
