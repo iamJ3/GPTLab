@@ -27,5 +27,4 @@ app.use('/api/user',userRouter);
 
 app.listen(PORT,()=>{
 console.log(`Server is running on http://localhost:${PORT}` );
-//ai saaas pern app greatstack
 })

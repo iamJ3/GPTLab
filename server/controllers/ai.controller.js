@@ -87,14 +87,26 @@ export const generateBlogTitle = async (req, res) => {
       });
     }
 
-    const response = await AI.chat.completions.create({
-      model: "gemini-2.0-flash",
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      max_tokens: 100,
-    });
+    const response = await axios.post(
+      `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 1100,
+        },
+      }
+    );
 
-    const content = response.choices[0].message.content;
+    const content = response.data.candidates[0].content.parts[0].text;
 
     await sql` INSERT INTO creations (user_id, prompt, content, type) VALUES (${userId}, ${prompt}, ${content}, 'blog-title') `;
 
