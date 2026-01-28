@@ -26,37 +26,40 @@ const BlogTitle = () => {
 
   const { getToken } = useAuth();
 
-  // const onSubmitHandler = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     setLoading(true);
-  //     const prompt = `Generate a blog title for the keyword ${input} in the category ${selectedCategory}`;
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      
+      const prompt = `Create 5 engaging and SEO-friendly blog titles for the keyword "${input}" in the ${selectedCategory} category. Make them catchy, informative, and suitable for a blog post.`;
 
-  //     const { data } = await axios.post(
-  //       "/api/ai/generate-blog-title",
-  //       { prompt },
-  //       {
-  //         headers: { Authorization: `Bearer ${await getToken()}` },
-  //       }
-  //     );
+      const { data } = await axios.post(
+        "/api/ai/generate-blog-title",
+        { prompt },
+        {
+          headers: { Authorization: `Bearer ${await getToken()}` },
+        }
+      );
 
-  //     if (data.success) {
-  //       setContent(data.content);
-  //     } else {
-  //       toast.error(data.message);
-  //     }
-  //   } catch (error) {
-  //     toast.error(error.message);
-  //   }
+      if (data.success) {
+        setContent(data.content);
+      } else {
+        toast.error(data.message);
+      console.log(data.message);
 
-  //   setLoading(false);
-  // };
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className="h-full overflow-y-auto p-6 flex items-start flex-wrap gap-4 bg-black text-white">
       {/* Left col */}
       <form
-        // onSubmit={onSubmitHandler}
+        onSubmit={onSubmitHandler}
         className="w-full max-w-lg p-4 bg-black rounded-lg border border-gray-800"
       >
         <div className="flex items-center gap-3">
