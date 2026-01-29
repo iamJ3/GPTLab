@@ -2,6 +2,17 @@
 
 AI-powered content creation platform. Generate articles, blog titles, images, and get resume feedback.
 
+## Images
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/42977859-ca1c-4b03-bb52-339df82b8091" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/429d3028-ad24-40c6-a5c3-9f094ab84712" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/9d326e73-0dbf-4e2d-80ae-fcf9d920c719" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/8b82ed93-0989-4546-a424-dfd313310cac" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/1880d647-eeeb-4847-9ad2-d04f80cb654f" />
+
+
+
+
+
 ## Quick Start
 
 ### Prerequisites
