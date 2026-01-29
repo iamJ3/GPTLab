@@ -8,7 +8,7 @@ const AiTool = () => {
   const { user } = useUser()
   const { openSignIn } = useClerk();
   return (
-    <section className='relative min-h-screen bg-black overflow-hidden px-4 sm:px-8 lg:px-16 xl:px-24 py-20'>
+    <section className='relative min-h-screen bg-black overflow-hidden px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-16 sm:py-20 md:py-24'>
       {/* Animated Starry Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(50)].map((_, i) => (
@@ -31,25 +31,25 @@ const AiTool = () => {
       {/* Content Container */}
       <div className="relative z-10">
         {/* Header Section */}
-        <header className='text-center mb-16 max-w-4xl mx-auto'>
-          <h1 className='text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight'>
+        <header className='text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl sm:max-w-4xl mx-auto'>
+          <h1 className='text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight'>
             Smart AI <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500'>Solutions</span>
           </h1>
-          <p className='text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto'>
+          <p className='text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-lg sm:max-w-2xl mx-auto'>
             Discover advanced tools to generate, improve, and streamline your content with next-generation AI technology.
           </p>
         </header>
 
         {/* Tools Grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl lg:max-w-7xl mx-auto'>
           {AiToolsData.map((tool, index) => (
             <article
               key={index}
               onClick={() => navigate(tool.path)}
-              className="group relative bg-gray-900/60 backdrop-blur-sm p-8 rounded-2xl 
+              className="group relative bg-gray-900/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-2xl 
                        border border-gray-700/50 hover:border-green-500/50 
                        hover:shadow-2xl hover:shadow-green-500/20 
-                       transform hover:-translate-y-3 hover:scale-105
+                       transform hover:-translate-y-2 sm:hover:-translate-y-3 hover:scale-105
                        transition-all duration-500 cursor-pointer
                        focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-opacity-50">
               {/* Card Glow Effect */}
@@ -61,9 +61,9 @@ const AiTool = () => {
                             opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
 
               {/* Icon Container */}
-              <div className="relative z-10 mb-6">
+              <div className="relative z-10 mb-4 sm:mb-6">
                 <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center
                            shadow-lg transition-all duration-500 group-hover:scale-110"
                   style={{
                     background: tool.bg ?
@@ -71,28 +71,28 @@ const AiTool = () => {
                       'linear-gradient(135deg, #10b981, #059669)'
                   }}
                 >
-                  <tool.Icon className='w-8 h-8 text-white drop-shadow-sm' aria-hidden="true" />
+                  <tool.Icon className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white drop-shadow-sm' aria-hidden="true" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h2 className="text-white text-xl font-bold mb-4 group-hover:text-green-300 
+                <h2 className="text-white text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:text-green-300 
                              transition-colors duration-300">
                   {tool.title}
                 </h2>
-                <p className="text-gray-300 text-sm leading-relaxed group-hover:text-gray-200 
-                            transition-colors duration-300 min-h-[3rem]">
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 
+                            transition-colors duration-300 min-h-[2.5rem] sm:min-h-[3rem]">
                   {tool.description}
                 </p>
               </div>
 
               {/* Hover Arrow Indicator */}
-              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 opacity-0 group-hover:opacity-100 
                             transform translate-x-2 group-hover:translate-x-0 
                             transition-all duration-300">
                 <svg
-                  className="w-5 h-5 text-green-400"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-green-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
