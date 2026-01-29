@@ -35,23 +35,23 @@ const ResumeReview = () => {
   };
 
   return (
-    <div className="h-full p-6 flex flex-wrap gap-6 text-white bg-black overflow-auto">
+    <div className="h-full p-4 sm:p-6 flex flex-col lg:flex-row gap-4 sm:gap-6 text-white bg-black overflow-auto">
       {/* Left column */}
       <form
         onSubmit={onSubmitHandler}
-        className="w-full max-w-lg p-6 border border-gray-700 rounded-lg flex flex-col gap-4"
+        className="w-full lg:max-w-lg p-4 sm:p-6 border border-gray-700 rounded-lg flex flex-col gap-3 sm:gap-4"
       >
-        <div className="flex items-center gap-3">
-          <Sparkles className="w-6 h-6 text-[#00CF79]" />
-          <h1 className="text-xl font-semibold">Resume Review</h1>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#00CF79]" />
+          <h1 className="text-lg sm:text-xl font-semibold">Resume Review</h1>
         </div>
 
-        <label className="text-sm font-medium mt-4">Upload Resume</label>
+        <label className="text-xs sm:text-sm font-medium mt-3 sm:mt-4">Upload Resume</label>
         <input
           type="file"
           accept="application/pdf"
           onChange={(e) => setInput(e.target.files[0])}
-          className="w-full file:text-gray-400 p-2 mt-2 text-sm rounded-md bg-gray-900 border border-gray-700 text-white outline-none"
+          className="w-full file:text-gray-400 p-2 sm:p-3 px-3 sm:px-4 mt-2 text-xs sm:text-sm rounded-md bg-gray-900 border border-gray-700 text-white outline-none file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-medium"
           required
         />
         <p className="text-xs text-gray-400 font-light">
@@ -60,31 +60,31 @@ const ResumeReview = () => {
 
         <button
           disabled={loading}
-          className="w-full flex justify-center items-center gap-2 mt-4 px-4 py-2 text-sm rounded-lg bg-[#00CF79] text-black font-medium"
+          className="w-full flex justify-center items-center gap-2 mt-3 sm:mt-4 px-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-lg bg-[#00CF79] text-black font-medium"
         >
           {loading ? (
-            <span className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin" />
+            <span className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-t-transparent rounded-full animate-spin" />
           ) : (
-            <FileText className="w-5 h-5" />
+            <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
           )}
           Review Resume
         </button>
       </form>
 
       {/* Right column */}
-      <div className="w-full max-w-lg p-6 border border-gray-700 rounded-lg flex flex-col gap-4 min-h-[24rem]">
-        <div className="flex items-center gap-3">
-          <FileText className="w-5 h-5 text-[#00CF79]" />
-          <h1 className="text-xl font-semibold">Analysis Results</h1>
+      <div className="w-full lg:max-w-lg p-4 sm:p-6 border border-gray-700 rounded-lg flex flex-col gap-3 sm:gap-4 min-h-80 sm:min-h-[24rem]">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-[#00CF79]" />
+          <h1 className="text-lg sm:text-xl font-semibold">Analysis Results</h1>
         </div>
 
         {!content ? (
-          <div className="flex-1 flex flex-col justify-center items-center gap-4 text-gray-500 text-sm">
-            <FileText className="w-10 h-10" />
-            <p>Upload a resume and click "Review Resume" to get started</p>
+          <div className="flex-1 flex flex-col justify-center items-center gap-3 sm:gap-4 text-gray-500 text-xs sm:text-sm">
+            <FileText className="w-8 h-8 sm:w-10 sm:h-10" />
+            <p className="text-center px-2">Upload a resume and click "Review Resume" to get started</p>
           </div>
         ) : (
-          <div className="mt-3 h-full overflow-auto text-sm text-gray-300">
+          <div className="mt-2 sm:mt-3 h-full overflow-auto text-xs sm:text-sm text-gray-300">
             <Markdown>{content}</Markdown>
           </div>
         )}
